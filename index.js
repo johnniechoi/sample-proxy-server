@@ -13,34 +13,25 @@ app.get('/working', function(req, res){ // listens for request on /api route
 /* PUT YOUR CODE BETWEEN COMMENTS */
 
 
-app.get('/api', function(req, res){ // listens for request on /api route
+app.get('/properties', function(req, res){ // listens for request on /api route
 
   request('http://mie.greenvilleonline.com/public_approve_query1.php', function (error, response, body) { // api url
     if (!error && response.statusCode === 200) {
-      console.log('beer');
+      console.log('Go buy a house!');
       res.send(body); // if no errors, send the body of data back to front end
     }
-   });
+  });
+
 });
 
-
+app.get('/search', function(req, res){
+  request.post({url: 'http://mie.greenvilleonline.com/public_approve_query1.php', form: {selldate: '11/07/2016'}}, function(err, httpResponse, body){
+   res.send(body);
+  });
+});
 
 /* PUT YOUR CODE ABOVE THIS COMMENT */
 
 var port = process.env.PORT || 3000;
 app.listen(port);
 console.log('Server running on port 3000');
-
-
-/* BreweryDB API Example */
-
-// app.get('/api', function(req, res){ // listens for request on /api route
-//   var lat = req.query.lat; // grabs lat and lng queries from the request object
-//   var lng = req.query.lng;
-//   request('https://api.brewerydb.com/v2/search/geo/point?lat=' + lat + '&lng=' + lng + '&type=beer&hasImages=Y&key=72a751214ab8b53056ac0a6d8376dc2d', function (error, response, body) { // api url
-//     if (!error && response.statusCode === 200) {
-//       console.log('beer');
-//       res.send(body); // if no errors, send the body of data back to front end
-//     }
-//    });
-// });
