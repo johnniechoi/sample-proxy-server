@@ -13,6 +13,17 @@ app.get('/test', function(req, res){ // listens for request on /api route
 /* PUT YOUR CODE BETWEEN COMMENTS */
 
 
+app.get('/api', function(req, res){ // listens for request on /api route
+
+  request('http://mie.greenvilleonline.com/public_approve_query1.php', function (error, response, body) { // api url
+    if (!error && response.statusCode === 200) {
+      console.log('beer');
+      res.send(body); // if no errors, send the body of data back to front end
+    }
+   });
+});
+
+
 
 /* PUT YOUR CODE ABOVE THIS COMMENT */
 
