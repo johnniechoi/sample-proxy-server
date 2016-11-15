@@ -15,7 +15,7 @@ app.get('/test', function(req, res){ // listens for request on /api route
 
 app.get('/api', function(req, res){ // listens for request on /api route
 
-  request('http://mie.greenvilleonline.com/sale_list.php?saledate=10/03/2016', function (error, response, body) { // api url
+  request('http://mie.greenvilleonline.com/public_approve_query1.php', function (error, response, body) { // api url
     if (!error && response.statusCode === 200) {
       console.log('beer');
       res.send(body); // if no errors, send the body of data back to front end
