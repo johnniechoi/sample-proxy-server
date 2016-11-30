@@ -7,6 +7,11 @@ var addressParser = require('parse-address');
 
 app.use(cors()); //allows overriding cross origin policy (use npm install if needed)
 
+app.get('/test', function(req, res){ // listens for request on /api route
+ console.log('working!');
+ res.send('working!'); // if no errors, send the body of data back to front end
+});
+
 app.get('/zillow', function(req, res){
   var address = req.query.address,
   zipcode = req.query.zipcode;
