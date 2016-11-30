@@ -5,29 +5,29 @@ var cors = require('cors');
 
 app.use(cors()); //allows overriding cross origin policy (use npm install if needed)
 
-app.get('/working', function(req, res){ // listens for request on /api route
- console.log('working!');
- res.send('working!'); // if no errors, send the body of data back to front end
-});
+// app.get('/working', function(req, res){ // listens for request on /api route
+//  console.log('working!');
+//  res.send('working!'); // if no errors, send the body of data back to front end
+// });
 
 /* PUT YOUR CODE BETWEEN COMMENTS */
 
 
-app.get('/properties', function(req, res){ // listens for request on /api route
-  request('http://mie.greenvilleonline.com/public_approve_query1.php', function (error, response, body) { // api url
-    if (!error && response.statusCode === 200) {
-      console.log('Go buy a house!');
-      res.send(body); // if no errors, send the body of data back to front end
-    }
-  });
+// app.get('/properties', function(req, res){ // listens for request on /api route
+//   request('http://mie.greenvilleonline.com/public_approve_query1.php', function (error, response, body) { // api url
+//     if (!error && response.statusCode === 200) {
+//       console.log('Go buy a house!');
+//       res.send(body); // if no errors, send the body of data back to front end
+//     }
+//   });
+//
+// });
 
-});
-
-app.get('/search', function(req, res){
-  request.post({url: 'http://mie.greenvilleonline.com/public_approve_query1.php', form: {selldate: '11/07/2016'}}, function(err, httpResponse, body){
-   res.send(body);
-  });
-});
+// app.get('/search', function(req, res){
+//   request.post({url: 'http://mie.greenvilleonline.com/public_approve_query1.php', form: {selldate: '11/07/2016'}}, function(err, httpResponse, body){
+//    res.send(body);
+//   });
+// });
 
 app.get('/zillow', function(req, res){
   var address = req.query.address,
@@ -37,6 +37,16 @@ app.get('/zillow', function(req, res){
     res.send(body);
   });
 });
+
+// This is the real API with the correct key !
+// app.get('/zillow', function(req, res){
+//   var address = req.query.address,
+//   zipcode = req.query.zipcode;
+//   console.log(address, zipcode)
+//   request({url: 'http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz19hch6rsa2z_5f91a&address=' + address + '&citystatezip=' + zipcode}, function(err, httpResponse, body){
+//     res.send(body);
+//   });
+// });
 
 /* PUT YOUR CODE ABOVE THIS COMMENT */
 
