@@ -5,7 +5,7 @@ var cors = require('cors');
 var jsdom = require("jsdom");
 var addressParser = require('parse-address');
 
-app.use(cors()); //allows overriding cross origin policy (use npm install if needed)
+// app.use(cors()); //allows overriding cross origin policy (use npm install if needed)
 
 app.get('/test', function(req, res){ // listens for request on /api route
  console.log('working!');
