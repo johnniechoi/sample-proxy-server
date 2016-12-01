@@ -78,12 +78,13 @@ function parseTableData(content, callback){
           soldAmount: row.cells.item(6).textContent
         }
       }).toArray();
-
+      console.log(data);
       // return the data minus the header row
       callback(data.slice(-10));
     }
   );
 }
+
 
 /* PUT YOUR CODE ABOVE THIS COMMENT */
 
